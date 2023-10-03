@@ -1,0 +1,66 @@
+/* styles.css */
+
+/* Game container */
+.game-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Banner styles */
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background-image: url('path_to_your_banner_image.jpg');
+  background-size: cover;
+}
+
+/* Bubble styles */
+.bubble {
+  position: absolute;
+  font-size: 2em;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 10px;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.bubble:hover {
+  transform: scale(1.2);
+}
+
+.bubble-pink {
+  background-color: pink;
+  color: white;
+}
+
+.bubble-green {
+  background-color: green;
+  color: white;
+}
+
+.bubble-yellow {
+  background-color: yellow;
+  color: black;
+}
+
+.bubble-purple {
+  background-color: purple;
+  color: white;
+}
+
+/* Score and time display */
+#score, #time {
+  margin: 10px;
+  font-size: 1.2em;
+}
+
