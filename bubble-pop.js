@@ -48,6 +48,8 @@ function popBubble(bubble) {
   });
 
   bubble.style.transform = "scale(1.5)";
+  score++;
+  updateScore();
   bubble.style.transition = "transform 0.3s ease";  // Added transition for smooth scaling
 
   setTimeout(() => {
