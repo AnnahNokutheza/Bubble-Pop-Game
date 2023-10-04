@@ -1,9 +1,11 @@
-// bubble-pop.js
-
 const gameContainer = document.querySelector(".game-container");
-const popSound = new Audio("bubble-pop-6395.mp3");
+const popSound = new Audio("bubble-pop-sound.mp3");
+const bubblePopSound = new Audio("bubble-pop-6395.mp3"); // Added bubble pop sound
+const buttonClickSound = new Audio("button-click-sound.mp3"); // Added button click sound
+const backgroundMusic = new Audio("background-music.mp3"); // Added background music
+
 let score = 0;
-let timeLeft = 30;
+let timeLeft = 40; // Adjusted initial time to 40 seconds
 let bubbleCount = 60;
 let timer;
 let currentStage = 1;
@@ -28,6 +30,12 @@ function createBubble() {
   const randomColorIndex = Math.floor(Math.random() * currentStageData.colors.length);
   bubble.classList.add(currentStageData.colors[randomColorIndex]);
 
+  // Add the bad-bubble class with a 10% chance
+  if (Math.random() < 0.1) {
+    bubble.classList.add("bad-bubble");
+    bubble.innerText = "👻"; // Assign a specific symbol for bad bubbles
+  }
+
   const randomX = Math.random() * (gameContainer.clientWidth - 50);
   const randomY = Math.random() * (gameContainer.clientHeight - 50);
 
@@ -35,7 +43,13 @@ function createBubble() {
   bubble.style.top = `${randomY}px`;
 
   bubble.addEventListener("click", () => {
-    popSound.play();
+    if (bubble.classList.contains("bad-bubble")) {
+      // Deduct points and reduce time for bad bubbles
+      score -= 5;
+      timeLeft -= 5;
+    } else {
+      bubblePopSound.play(); // Play bubble pop sound
+    }
     popBubble(bubble);
   });
 
@@ -88,6 +102,10 @@ function startGame() {
 
   clearInterval(timer);
 
+  // Play background music when the game starts
+  backgroundMusic.loop = true;
+  backgroundMusic.play();
+
   const bubbleCreationInterval = bubbleCount > 10 ? 500 : 1000;
 
   timer = setInterval(() => {
@@ -108,10 +126,9 @@ function startGame() {
 function endGame() {
   alert(`Stage ${currentStage} - Game Over!\nYour Score: ${score}`);
 
-// Play clapping hands sound when a stage is finished
-const clappingSound = new Audio("clapping.mp3");
-clappingSound.play();
-
+  // Play clapping hands sound when a stage is finished
+  const clappingSound = new Audio("clapping.mp3");
+  clappingSound.play();
 
   const playAgain = confirm("Do you want to play the next stage?");
   if (playAgain) {
