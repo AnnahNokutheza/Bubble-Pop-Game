@@ -46,7 +46,6 @@ function createBubble() {
     if (bubble.classList.contains("bad-bubble")) {
       // Deduct points and reduce time for bad bubbles
       score -= 5;
-      timeLeft -= 5;
     } else {
       bubblePopSound.play(); // Play bubble pop sound
     }
