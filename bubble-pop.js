@@ -18,8 +18,8 @@ const stages = [
   { symbols: ["🍎", "🍌"], colors: ["bubble-red", "bubble-yellow"], badSymbol: "🦠" },
   { symbols: ["🍆", "🍅"], colors: ["bubble-purple", "bubble-red"], badSymbol: "💩" },
   { symbols: ["🐶", "🐱"], colors: ["bubble-brown", "bubble-gray"], badSymbol: "🐍" },
-  { symbols: ["A", "B"], colors: ["bubble-red", "bubble-green"], badSymbol: "C" },
-  { symbols: ["1", "2"], colors: ["bubble-blue", "bubble-orange"], badSymbol: "3" },
+  { symbols: ["🚗", "✈️"], colors: ["bubble-blue", "bubble-orange"], badSymbol: "👜" },
+  { symbols: ["🕶️", "👜"], colors: ["bubble-red", "bubble-yellow"], badSymbol: "🦠" },
   { symbols: ["🐘", "🦁"], colors: ["bubble-gray", "bubble-brown"], badSymbol: "🐍" }
   // Add more stages as needed
 ];
