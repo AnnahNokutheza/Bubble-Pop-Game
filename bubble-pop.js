@@ -5,7 +5,7 @@ const buttonClickSound = new Audio("button-click-sound.mp3"); // Added button cl
 const backgroundMusic = new Audio("background-music.mp3"); // Added background music
 
 let score = 0;
-let timeLeft = 40; // Adjusted initial time to 40 seconds
+let timeLeft = 60; // Adjusted initial time to 40 seconds
 let bubbleCount = 60;
 let timer;
 let currentStage = 1;
