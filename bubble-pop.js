@@ -9,13 +9,18 @@ let timeLeft = 40; // Adjusted initial time to 40 seconds
 let bubbleCount = 60;
 let timer;
 let currentStage = 1;
+let stageCompleted = false;
 
 const stages = [
-  { symbols: ["💣", "🎈"], colors: ["bubble-pink", "bubble-green"] },
-  { symbols: ["🍕", "🎉"], colors: ["bubble-yellow", "bubble-purple"] },
-  { symbols: ["🍇", "🍊"], colors: ["bubble-blue", "bubble-orange"] },
-  { symbols: ["🍎", "🍌"], colors: ["bubble-red", "bubble-yellow"] },
-  { symbols: ["🍆", "🍅"], colors: ["bubble-purple", "bubble-red"] }
+  { symbols: ["💣", "🎈"], colors: ["bubble-pink", "bubble-green"], badSymbol: "👻" },
+  { symbols: ["🍕", "🎉"], colors: ["bubble-yellow", "bubble-purple"], badSymbol: "🕷️" },
+  { symbols: ["🍇", "🍊"], colors: ["bubble-blue", "bubble-orange"], badSymbol: "👽" },
+  { symbols: ["🍎", "🍌"], colors: ["bubble-red", "bubble-yellow"], badSymbol: "🦠" },
+  { symbols: ["🍆", "🍅"], colors: ["bubble-purple", "bubble-red"], badSymbol: "💩" },
+  { symbols: ["🐶", "🐱"], colors: ["bubble-brown", "bubble-gray"], badSymbol: "🐍" },
+  { symbols: ["A", "B"], colors: ["bubble-red", "bubble-green"], badSymbol: "C" },
+  { symbols: ["1", "2"], colors: ["bubble-blue", "bubble-orange"], badSymbol: "3" },
+  { symbols: ["🐘", "🦁"], colors: ["bubble-gray", "bubble-brown"], badSymbol: "🐍" }
   // Add more stages as needed
 ];
 
