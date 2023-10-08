@@ -1,12 +1,12 @@
 const gameContainer = document.querySelector(".game-container");
 const popSound = new Audio("bubble-pop-sound.mp3");
-const bubblePopSound = new Audio("bubble-pop-6395.mp3"); // Added bubble pop sound
+const bubblePopSound = new Audio("bubble-pop-6395.mp3");
 const buttonClickSound = new Audio("button-click-sound.mp3"); // Added button click sound
 const backgroundMusic = new Audio("background-music.mp3"); // Added background music
 
 let score = 0;
-let timeLeft = 60; // Adjusted initial time to 40 seconds
-let bubbleCount = 60;
+let timeLeft = 35; // Adjusted initial time to 60 seconds
+let bubbleCount = 40;
 let timer;
 let currentStage = 1;
 let stageCompleted = false;
@@ -99,6 +99,7 @@ function updateTime() {
 }
 
 function startGame() {
+  stageCompleted = false; // Reset the stageCompleted flag
   score = 0;
   timeLeft = 60;
   updateScore();
@@ -116,7 +117,7 @@ function startGame() {
     timeLeft--;
     updateTime();
 
-    if (timeLeft === 0) {
+    if (timeLeft === 0 && !stageCompleted) {
       clearInterval(timer);
       endGame();
     }
@@ -127,26 +128,32 @@ function startGame() {
   }
 }
 
+
+// Modify the endGame() function
 function endGame() {
-  alert(`Stage ${currentStage} - Game Over!\nYour Score: ${score}`);
+  if (!stageCompleted) {
+    alert(`Stage ${currentStage} - Game Over!\nYour Score: ${score}`);
+    stageCompleted = true;  // Update the stageCompleted flag
 
-  // Play clapping hands sound when a stage is finished
-  const clappingSound = new Audio("clapping.mp3");
-  clappingSound.play();
+    // Play clapping hands sound when a stage is finished
+    const clappingSound = new Audio("clapping.mp3");
+    clappingSound.play();
 
-  const playAgain = confirm("Do you want to play the next stage?");
-  if (playAgain) {
-    if (currentStage < stages.length) {
-      currentStage++;
-      bubbleCount += 10; // Increase the number of bubbles for the next stage
-      startGame();
+    const playAgain = confirm("Do you want to play the next stage?");
+    if (playAgain) {
+      if (currentStage < stages.length) {
+        currentStage++;
+        bubbleCount += 10; // Increase the number of bubbles for the next stage
+        startGame();
+      } else {
+        alert("Congratulations! You completed all stages.");
+        gameContainer.innerHTML = ""; // Clear the game container
+      }
     } else {
-      alert("Congratulations! You completed all stages.");
       gameContainer.innerHTML = ""; // Clear the game container
     }
-  } else {
-    gameContainer.innerHTML = ""; // Clear the game container
   }
 }
+
 
 startGame();
