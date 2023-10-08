@@ -100,7 +100,7 @@ function updateTime() {
 
 function startGame() {
   score = 0;
-  timeLeft = 40;
+  timeLeft = 60;
   updateScore();
   updateTime();
 
