@@ -12,7 +12,7 @@ let currentStage = 1;
 let stageCompleted = false;
 
 const stages = [
-  { symbols: ["💣", "🎈"], colors: ["bubble-pink", "bubble-green"], badSymbol: "👻" },
+  { symbols: ["🍩", "🍷"], colors: ["bubble-pink", "bubble-green"], badSymbol: "👻" },
   { symbols: ["🍕", "🎉"], colors: ["bubble-yellow", "bubble-purple"], badSymbol: "🕷️" },
   { symbols: ["🍇", "🍊"], colors: ["bubble-blue", "bubble-orange"], badSymbol: "👽" },
   { symbols: ["🍎", "🍌"], colors: ["bubble-red", "bubble-yellow"], badSymbol: "🦠" },
