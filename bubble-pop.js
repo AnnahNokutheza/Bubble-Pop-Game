@@ -6,7 +6,7 @@ const backgroundMusic = new Audio("background-music.mp3"); // Added background m
 
 let score = 0;
 let timeLeft = 35; // Adjusted initial time to 60 seconds
-let bubbleCount = 40;
+let bubbleCount = 50;
 let timer;
 let currentStage = 1;
 let stageCompleted = false;
@@ -101,7 +101,7 @@ function updateTime() {
 function startGame() {
   stageCompleted = false; // Reset the stageCompleted flag
   score = 0;
-  timeLeft = 60;
+  timeLeft = 35;
   updateScore();
   updateTime();
 
